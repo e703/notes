@@ -35,10 +35,11 @@
 `hellow world`
 
 多行代码引用
-``` let pauseBtn = UIButton(frame: CGRect(x: 50, y: HEIGHT-100, width: 100, height: 50))
+‘``` let pauseBtn = UIButton(frame: CGRect(x: 50, y: HEIGHT-100, width: 100, height: 50))
         pauseBtn.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         pauseBtn.setTitle("暂停", for: .normal)
         pauseBtn.tag = 11
-        pauseBtn.setTitleColor(UIColor.black, for: .normal)```
+        pauseBtn.setTitleColor(UIColor.black, for: .normal)```’
 		
-		  在代码前后加上```，格式：‘ ```代码``` ’
+
+在代码前后加上```，格式：‘ ```代码``` ’
