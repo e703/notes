@@ -43,7 +43,7 @@
         pauseBtn.setTitleColor(UIColor.black, for: .normal)```
 		
 
-在代码前后加上```，格式：‘ ```代码``` ’
+在代码前后加上` ` `，格式：‘ ` ` `代码` ` ` ’
 
 
 
