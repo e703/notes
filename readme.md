@@ -13,21 +13,19 @@
 - 文本2
 
 有序列表
--1.文本1
--2.文本2
+1.文本1
+2.文本2
 
 插入网络链接
 [测试](http://www.baidu.com "悬停显示文字")
+
 
 插入网络图片01（MD专用格式）
 [![8rwClj.png](https://s1.ax1x.com/2020/03/19/8rwClj.png)](https://imgchr.com/i/8rwClj)
 
 插入网络图片01 通用格式
-
 ![图片名][1]
 [1]:http://latex.codecogs.com/gif.latex?%5Cprod%20%5C(n_%7Bi%7D%5C)+1
-
-
 
 
 粗体和斜体
