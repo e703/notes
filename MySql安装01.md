@@ -44,18 +44,21 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 
 ## 2. 安装后基本操作
 ### 2.1 开启MySQL服务
-
-`sudo service mysql start`
 关闭服务
 
-`sudo service mysql stop`
+`sudo service mysql start`
+
 重启服务
 
-`sudo service mysql restart`
+`sudo service mysql stop`
+
 尝试登陆
 
-`mysql -u root -p`
+`sudo service mysql restart`
+
 输入密码即可登陆到mysql
+
+`mysql -u root -p`
 
 ### 2.2 其他常用配置
 因为MySQL刚刚安装完成的时候是不允许从远程访问的，同时，MySQL安装完成的时候，是只能使用root用户登录的，这也是一个不安全的地方，所以我们应该建立一个用于开发的数据库账户，并且为它设置远程访问权限，当然，在真正投入生成环境之后，我们应该移除远程访问的权限
@@ -75,13 +78,15 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 接着刷新权限即可使用新用户在任意host登录数据库
 
 mysql> FLUSH PRIVILEGES;
-#### 2.2.3 其他配置
+#### 2.2.3 其他配置(远程登录）
 如果还是不行的话，打开下面的文件
 
 `sudo vim /etc/mysql/mysql.conf.d/mysqlld.cnf`
+
 把**bind-adress**那一行的**127.0.0.1**改成**0.0.0.0**(当然，投入生产时记得改回来！)
 
-```  By default we only accept connections from localhost
+```
+By default we only accept connections from localhost
 - bind-address    = 127.0.0.1
 + bind-address    = 0.0.0.0
 ```
@@ -90,13 +95,16 @@ mysql> FLUSH PRIVILEGES;
 ## 3.卸载MySQL
 ### 3.1查看当前安装情况
 `sudo dpkg --get-selections | grep mysql`
+
 [![当前安装情况](https://s1.ax1x.com/2020/03/19/8r7Sld.png)](https://imgchr.com/i/8r7Sld)
 
 ### 3.2 使用purge卸载:
 
-```sudo apt-get --purge remove mysql-server
+```
+sudo apt-get --purge remove mysql-server
 sudo apt-get --purge remove mysql-client
-sudo apt-get --purge remove mysql-common```
+sudo apt-get --purge remove mysql-common
+```
 
 这样就可以卸载完成了
 
