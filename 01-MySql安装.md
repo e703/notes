@@ -110,87 +110,19 @@ sudo apt-get --purge remove mysql-common
 
 这样就可以卸载完成了
 
-3
+### 3.3 卸载不需要的安装包
 使用以下命令卸载不需要的安装包:
 
+```
 sudo apt-get autoremove
 
 sudo apt-get autoclean
+```
 
 删除mysql配置文件是否清除(如果没有清除):
 
+```
 rm /etc/mysql/ -rf
+
 rm /var/lib/mysql/ -rf
-
-
-方法/步骤2 重新安装
-1
-安装命令 :
-
-sudo apt-get install mysql-server mysql-client
-
-mysql 的 启动/关闭/重启命令:
-
-service mysql start 启动
-
-service mysql stop 关闭
-
-service mysql restart 重启
-
-2
-在debian上安装mysql 使用的是 MariaDB 
-
-默认只能root用户登录和空密码登录
-
-设置 普通用户登录命令:
-
-在root用户下:mysql -uroot -p 登入mysql (直接enter)
-
-debian mysql 安装和 卸载
-3
-进入到mysql数据库中,依次输入以下命令:
-
-use mysql  ➠ select user,plugin from user; ↪︎
-
-update mysql.user set plugin='' where User='root'; ↪︎
-
-flush privileges;
-
-4
-允许远程连接并配置密码:
-
-在debian中mysql的配置文件在/etc/mysql/mariadb.conf.d/50-server.cnf中,
-
-sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
-
-将 bind-address=127.0.0.1 注释掉 开头加#
-
-debian mysql 安装和 卸载
-5
-登录mysql 并输入以下命令:
-
-grant all privileges on *.* to 'root'@'%' identified by 'mysql' with grant option;
-
-flush privileges;
-
-6
-重启 mysql:
-
-service mysql restart
-
-7
-end..........
-
-能力有限,暂时到这里了
-
-
-
-
-
-
-插入网络图片01（MD专用格式）
-[![8rwClj.png](https://s1.ax1x.com/2020/03/19/8rwClj.png)](https://imgchr.com/i/8rwClj)
-
-
-
-
+```
