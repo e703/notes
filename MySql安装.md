@@ -1,6 +1,6 @@
 # Debian 9 下安装 MySQL 5.7
 ## 1.在线安装
-### 配置apt-get源
+### 1.1 配置apt-get源
 debian下安装软件的指令为apt-get，在使用apt-get安装MySQL之前，需要先下载MySQL官网提供的DEB包，以将MySQL的仓库添加到apt-get的源中，打开网站[
 MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Respository") 
 ![MySQL-Download](https://s1.ax1x.com/2020/03/19/8r60G6.png)
@@ -8,23 +8,17 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 ![8r6sMD.png](https://s1.ax1x.com/2020/03/19/8r6sMD.png)
 右键点击No thanks，just start my download复制链接
 
+### 1.2 在线安装
 打开debian的shell，进入你的工作目录
+`cd ~`
 
-cd ~
 使用wget指令下载deb文件(刚刚复制的链接)
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
-
-sudo dpkg -i ./mysql-apt-config_0.8.15-1_all.deb
-
-
-config_0.8.9-1_all.deb
+`wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb`
 下载之后可以使用ls查看到刚刚下载的文件
 
-// ~
-+ |- mysql-apt-config_0.8.9-1_all.deb
 当然你下载下来的文件的版本号可能不一定是这个，一切以你下载的结果为准，接下来使用dpkg指令添加该文件进apt-get的源
+`sudo dpkg -i ./mysql-apt-config_0.8.9-1_all.deb`
 
-sudo dpkg -i ./mysql-apt-config_0.8.9-1_all.deb
 完成后会弹出一个mysql的源的配置界面
 
 
