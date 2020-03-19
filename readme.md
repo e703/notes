@@ -28,7 +28,7 @@
 插入网络图片01 通用格式
 
 ![图片名][1]
-[1]:http://latex.codecogs.com/gif.latex?\prod%20\(n_{i}\)+1
+[1]:http://latex.codecogs.com/gif.latex?%5Cprod%20%5C(n_%7Bi%7D%5C)+1
 
 
 插入引用文字
