@@ -67,6 +67,7 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 首先，先创建一个新用户，在这之前要先登录MySQL
 
 `mysql -u root -p`
+
 输入密码登录之后，使用如下指令来新建一个用户
 
 `mysql> CREATE USER 'username'@'%' IDENTIFIED BY 'password';`
@@ -75,6 +76,7 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 完成之后使用如下指令为该用户分配所有权限
 
 `mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'%';`
+
 接着刷新权限即可使用新用户在任意host登录数据库
 
 mysql> FLUSH PRIVILEGES;
