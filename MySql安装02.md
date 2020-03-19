@@ -3,9 +3,8 @@
 ### 配置apt-get源
 debian下安装软件的指令为apt-get，在使用apt-get安装MySQL之前，需要先下载MySQL官网提供的DEB包，以将MySQL的仓库添加到apt-get的源中，打开网站[
 MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Respository") 
-点击Download，跳转到下载页面:
-![8r60G6.png](https://s1.ax1x.com/2020/03/19/8r60G6.png)
-MySQL-Download
+![MySQL-Download](https://s1.ax1x.com/2020/03/19/8r60G6.png)
+点击Download，跳转到下载页面:MySQL-Download
 ![8r6sMD.png](https://s1.ax1x.com/2020/03/19/8r6sMD.png)
 右键点击No thanks，just start my download复制链接
 
