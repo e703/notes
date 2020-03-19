@@ -11,13 +11,17 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 
 ### 1.2 在线下载＆配置安装源
 - 打开debian的shell，进入你的工作目录
+
 `cd ~`
 
 - 使用wget指令下载deb文件(刚刚复制的链接)
+
 `wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb`
+
 - 下载之后可以使用ls查看到刚刚下载的文件
 
 - 当然你下载下来的文件的版本号可能不一定是这个，一切以你下载的结果为准，接下来使用dpkg指令添加该文件进apt-get的源
+
 `sudo dpkg -i ./mysql-apt-config_0.8.9-1_all.deb`
 
 - 完成后会弹出一个mysql的源的配置界面
@@ -40,12 +44,16 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 
 ## 2. 安装后基本操作
 ### 2.1 开启MySQL服务
+
 `sudo service mysql start`
 关闭服务
+
 `sudo service mysql stop`
 重启服务
+
 `sudo service mysql restart`
 尝试登陆
+
 `mysql -u root -p`
 输入密码即可登陆到mysql
 
@@ -54,20 +62,26 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 
 #### 2.2.1 创建用户
 首先，先创建一个新用户，在这之前要先登录MySQL
+
 `mysql -u root -p`
 输入密码登录之后，使用如下指令来新建一个用户
+
 `mysql> CREATE USER 'username'@'%' IDENTIFIED BY 'password';`
+
 #### 2.2.2 分配账户权限
 完成之后使用如下指令为该用户分配所有权限
+
 `mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'%';`
 接着刷新权限即可使用新用户在任意host登录数据库
+
 mysql> FLUSH PRIVILEGES;
 #### 2.2.3 其他配置
 如果还是不行的话，打开下面的文件
+
 `sudo vim /etc/mysql/mysql.conf.d/mysqlld.cnf`
 把**bind-adress**那一行的**127.0.0.1**改成**0.0.0.0**(当然，投入生产时记得改回来！)
 
-```  # By default we only accept connections from localhost
+```  By default we only accept connections from localhost
 - bind-address    = 127.0.0.1
 + bind-address    = 0.0.0.0
 ```
@@ -80,9 +94,9 @@ mysql> FLUSH PRIVILEGES;
 
 ### 3.2 使用purge卸载:
 
-sudo apt-get --purge remove mysql-server
+```sudo apt-get --purge remove mysql-server
 sudo apt-get --purge remove mysql-client
-sudo apt-get --purge remove mysql-common
+sudo apt-get --purge remove mysql-common```
 
 这样就可以卸载完成了
 
