@@ -20,6 +20,7 @@ MySQL APT Respository](https://dev.mysql.com/downloads/repo/apt/ "MySQL APT Resp
 `sudo dpkg -i ./mysql-apt-config_0.8.9-1_all.deb`
 
 完成后会弹出一个mysql的源的配置界面
+![8rgXvT.png](https://s1.ax1x.com/2020/03/19/8rgXvT.png)
 
 
 MySQL源配置界面
