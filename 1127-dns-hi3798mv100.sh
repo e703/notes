@@ -8,13 +8,13 @@ apt install unzip wget curl redis-server vim -y
 echo "软件安装完成"
 
 # 下载 mosdns
-wget https://github.com/IrineSistiana/mosdns/releases/download/v4.5.3/mosdns-linux-amd64.zip
+wget https://github.com/IrineSistiana/mosdns/releases/download/v4.5.3/mosdns-linux-arm-7.zip
 echo "下载 mosdns 完成"
 wget https://github.com/haotianlPM/easymosdns-k/releases/download/v1.0.0/easymosdns-k.zip
 echo "下载 easymosdns 完成"
 
 # 解压 mosdns
-sudo unzip mosdns-linux-amd64.zip "mosdns" -d /usr/local/bin
+sudo unzip mosdns-linux-arm-7.zip "mosdns" -d /usr/local/bin
 sudo chmod +x /usr/local/bin/mosdns
 echo "解压并设置 mosdns 完成"
 
