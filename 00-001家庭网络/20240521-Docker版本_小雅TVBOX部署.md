@@ -73,20 +73,29 @@
 
 `multipass launch --name vm3 -c 4 -m 4G -d 300G`
 
-- vm3 虚拟机名称
-- -c 4 代表虚拟4核心 这个要根据实际CPU核心数确定 不能随便写 比如本身2核心的cpu是无法虚拟4核心的
-- -m 4G 代表虚拟4GB内存
+| 参数    | 含义解释                                                     |
+| ------- | ------------------------------------------------------------ |
+| vm3     | 虚拟机名称                                                   |
+| -c 4    | 代表虚拟4核心 这个要根据实际CPU核心数确定 不能随便写 比如本身2核心的cpu是无法虚拟4核心的 |
+| -m 4G   | 代表虚拟4GB内存                                              |
+| -d 300G | 代表分配虚拟磁盘300GB                                        |
 
-- -d 300G 代表分配虚拟磁盘300GB
+#### 2.3 设置桥接模式的网络
 
-2.4 设置桥接模式的网络
-multipass set local.bridged-network=<name>
-# 比如重命名以太网2为lan2
-multipass set local.bridged-network=lan2
+`multipass set local.bridged-network=<name>`
+
+比如重命名以太网2为lan2
+
+`multipass set local.bridged-network=lan2`
+
 <name> 就是网口的名称 比如 以太网，但是最好重命名为英文，比如lan1、lan2
 
+
+
 创建桥接模式的虚拟机vm4
-multipass launch --name vm4 -c 4 -m 4G -d 300G --network bridged
+
+`multipass launch --name vm4 -c 4 -m 4G -d 300G --network bridged`
+
 
 
 2.2 LXC环境部署
