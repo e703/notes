@@ -24,50 +24,60 @@
 举例，比如创建一个名为 vm1 的虚拟机实例，不写系统镜像这个参数，则表示最新版ubuntu 24.04
 
 `multipass launch --name vm1`
+
 以后如何调用虚拟机？
-方法一 任务栏图标点击右键——Open Shell
 
+*方法一 任务栏图标点击右键——Open Shell*
 
-方法二 运行指定虚拟机实例名称即可
+*方法二 运行指定虚拟机实例名称即可*
 
 `multipass shell vm1`
-2.2.3 如何换 国内 软件源 比如阿里云 Ubuntu 24.04 为例
+
+#### 2.2.3 如何换 国内 软件源 比如阿里云 Ubuntu 24.04 为例
+
 `sudo sed -i 's|http://archive.ubuntu.com/|http://mirrors.aliyun.com/|g' /etc/apt/sources.list.d/ubuntu.sources`
+
 或者手动修改 配置文件
 
 `nano /etc/apt/sources.list.d/ubuntu.sources`
 
 然后更新软件源
+
 `sudo -i`
 `apt update -y`
 `apt upgrade -y`
-2.2.4 如何删除虚拟机实例（分三步）
 
-# 停止 vm1
-multipass stop vm1
-# 删除 vm1
-multipass delete vm1
-# 清理回收
-multipass purge
+#### 2.2.4 如何删除虚拟机实例（分三步）
 
-# 附加
+##### 停止 vm1
+`multipass stop vm1`
 
-# 停止全部虚拟机
-multipass stop --all
+##### 删除 vm1
+`multipass delete vm1`
 
-2.2.5 查看虚拟机列表
-# 查看虚拟机列表 包括其状态（正在运行、已经删除的、已经停止的、标记未知状态的）
-multipass list
-2.3 进阶使用
+##### 清理回收
+`multipass purge`
+
+##### 停止全部虚拟机
+`multipass stop --all`
+
+#### 2.2.5 查看虚拟机列表
+
+查看虚拟机列表 包括其状态（正在运行、已经删除的、已经停止的、标记未知状态的）
+
+`multipass list`
+
+#### 2.2.6 进阶使用
+
 新建 4核心 4GB内存 300G虚拟磁盘的ubuntu 实例
-multipass launch --name vm3 -c 4 -m 4G -d 300G
-vm3 虚拟机名称
 
--c 4 代表虚拟4核心 这个要根据实际CPU核心数确定 不能随便写 比如本身2核心的cpu是无法虚拟4核心的
+`multipass launch --name vm3 -c 4 -m 4G -d 300G`
 
--m 4G 代表虚拟4GB内存
+- vm3 虚拟机名称
+- -c 4 代表虚拟4核心 这个要根据实际CPU核心数确定 不能随便写 比如本身2核心的cpu是无法虚拟4核心的
+- -m 4G 代表虚拟4GB内存
 
--d 300G 代表分配虚拟磁盘300GB
+- -d 300G 代表分配虚拟磁盘300GB
 
 2.4 设置桥接模式的网络
 multipass set local.bridged-network=<name>
