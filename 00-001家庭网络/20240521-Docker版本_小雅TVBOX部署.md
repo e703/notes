@@ -37,12 +37,12 @@
 
 `nano /etc/apt/sources.list.d/ubuntu.sources`
 
-
 然后更新软件源
 `sudo -i`
 `apt update -y`
 `apt upgrade -y`
 2.2.4 如何删除虚拟机实例（分三步）
+
 # 停止 vm1
 multipass stop vm1
 # 删除 vm1
