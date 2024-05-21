@@ -2,8 +2,8 @@
 
 ## 1.先决条件：
 
-1.  ubuntu Server 系统（LXC、VM、Hyper-V、multipass都行）*
-2.  阿里网盘key，pikpak账户*
+1.  ubuntu Server 系统（LXC、VM、Hyper-V、multipass都行）
+2.  阿里网盘key，pikpak账户
 
 ## 2.环境部署
 
@@ -11,13 +11,11 @@
 
 下载安装multipass安装，使用默认Hyper-V开启本机虚拟化；
 
-### 2.2 multipass使用
-
-#### 2.2.1查看支持的系统镜像列表
+#### 2.1.1查看支持的系统镜像列表
 
 `multipass find`
 
-#### 2.2.2 新建和运行 ubuntu
+#### 2.1.2 新建和运行 ubuntu
 
 `multipass launch --name <虚拟机实例名称> <系统镜像名称(可选)>`
 
@@ -33,7 +31,7 @@
 
 `multipass shell vm1`
 
-#### 2.2.3 如何换 国内 软件源 比如阿里云 Ubuntu 24.04 为例
+#### 2.1.3 如何换 国内 软件源 比如阿里云 Ubuntu 24.04 为例
 
 `sudo sed -i 's|http://archive.ubuntu.com/|http://mirrors.aliyun.com/|g' /etc/apt/sources.list.d/ubuntu.sources`
 
@@ -47,7 +45,7 @@
 `apt update -y`
 `apt upgrade -y`
 
-#### 2.2.4 如何删除虚拟机实例（分三步）
+#### 2.1.4 如何删除虚拟机实例（分三步）
 
 ##### 停止 vm1
 `multipass stop vm1`
@@ -61,13 +59,13 @@
 ##### 停止全部虚拟机
 `multipass stop --all`
 
-#### 2.2.5 查看虚拟机列表
+#### 2.1.5 查看虚拟机列表
 
 查看虚拟机列表 包括其状态（正在运行、已经删除的、已经停止的、标记未知状态的）
 
 `multipass list`
 
-#### 2.2.6 进阶使用
+#### 2.1.6 进阶使用
 
 新建 4核心 4GB内存 300G虚拟磁盘的ubuntu 实例
 
@@ -80,7 +78,7 @@
 | -m 4G   | 代表虚拟4GB内存                                              |
 | -d 300G | 代表分配虚拟磁盘300GB                                        |
 
-#### 2.3 设置桥接模式的网络
+#### 2.1.7 设置桥接模式的网络
 
 `multipass set local.bridged-network=<name>`
 
@@ -98,8 +96,11 @@
 
 
 
-2.2 LXC环境部署
-2.3 其他环境部署
+### 2.2 LXC环境部署
+
+
+
+### 2.3 其他环境部署
 
 
 
