@@ -3,6 +3,7 @@
 ## 1.先决条件：
 
 *1.1 ubuntu Server 系统（LXC、VM、Hyper-V、multipass都行）*
+
 *1.2 阿里网盘key，pikpak账户*
 
 ## 2.环境部署
