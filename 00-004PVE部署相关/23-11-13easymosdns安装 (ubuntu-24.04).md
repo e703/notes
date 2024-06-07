@@ -50,8 +50,39 @@ nano ~/.zshrc
 基础工作完成后，我们右键对应的容器，转化为模板即可
 
 ## easymosdns安装
+系统docker环境部署
+
+导入 Docker APT 存储库 GPG 密钥
+
+```
+apt install gpg -y
+
+curl  -fsSL  https://download.docker.com/linux/ubuntu/gpg| sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker.gpg
+```
+
+将存储库添加到 Apt 源：
+
+```
+echo "deb https://download.docker.com/linux/ubuntu  noble stable" | sudo tee /etc/apt/sources.list.d/docker.list
+```
+
+更新系统中的存储库列表以确认其正常工作
+
+```
+apt install docker.io
+```
+
+```
+curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+```
+
+
+
 上传脚本dns-ui.sh以及prometheus.yml、docker-compose.yml、dns.json
 #赋予脚本可执行权限
+
 ```
 chmod +x dns-ui-2404.sh
 ```
