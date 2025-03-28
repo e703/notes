@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "readme.md",
+                "file": "00-000其他/02-01.电报机器人推荐.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "readme"
+              "title": "02-01.电报机器人推荐"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "readme.md",
+                "file": "00-000其他/02-01.电报机器人推荐.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "readme 的反向链接列表"
+              "title": "02-01.电报机器人推荐 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "readme.md",
+                "file": "00-000其他/02-01.电报机器人推荐.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "readme 的出链列表"
+              "title": "02-01.电报机器人推荐 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "readme.md",
+                "file": "00-000其他/02-01.电报机器人推荐.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "readme 的大纲"
+              "title": "02-01.电报机器人推荐 的大纲"
             }
           }
         ]
@@ -169,13 +169,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ea3ea516dd5feaef",
+  "active": "06c03558e2efcdb3",
   "lastOpenFiles": [
-    "00-00其他/20240514-01.VSCode配置GitHub.md",
-    "00-00其他/20240514-00.Esxi离线升级.md",
-    "00-00其他/05.Chrome插件-介绍.md",
-    "00-00其他/03.DNS_ADH.md",
-    "00-00其他/02.第三方免费域名解析.md",
-    "00-00其他/02-01.电报机器人推荐.md"
+    "00-003Linix服务部署/01-数据库/01-01MySql安装_Debian9系统.md",
+    "00-004PVE部署相关/23-11-13easymosdns安装.md",
+    "00-004PVE部署相关/23-10-03轻松搭建分流DNS服务器.md",
+    "00-004PVE部署相关/23-10-02.PVE下LXC部署ubuntu及初始化.md",
+    "00-004PVE部署相关/23-10-02-01PVE下LXC部署Openwrt.md",
+    "00-004PVE部署相关/23-10-01PVE8初始化.md",
+    "readme.md",
+    "00-000其他/20240514-01.VSCode配置GitHub.md",
+    "00-000其他/20240514-00.Esxi离线升级.md",
+    "00-000其他/05.Chrome插件-介绍.md",
+    "00-000其他/03.DNS_ADH.md",
+    "00-000其他/02.第三方免费域名解析.md",
+    "00-000其他/02-01.电报机器人推荐.md"
   ]
 }
