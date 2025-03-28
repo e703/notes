@@ -1,0 +1,181 @@
+{
+  "main": {
+    "id": "eb504de17ccae7c5",
+    "type": "split",
+    "children": [
+      {
+        "id": "41c5a6d90a790daf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea3ea516dd5feaef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "readme.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "readme"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d82fa5211ef3eb8b",
+    "type": "split",
+    "children": [
+      {
+        "id": "77a750e80db96b5d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06c03558e2efcdb3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "733a2ad0297fc749",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b6597c8f31c05247",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "68d634a6358a8aac",
+    "type": "split",
+    "children": [
+      {
+        "id": "7ad0527542cedeb4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5255bbacc98cbe0a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "readme.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "readme 的反向链接列表"
+            }
+          },
+          {
+            "id": "b03be0e3ed3922e4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "readme.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "readme 的出链列表"
+            }
+          },
+          {
+            "id": "b20b63a91f5f77cb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "8e8cc0aee518e8a6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "readme.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "readme 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "ea3ea516dd5feaef",
+  "lastOpenFiles": [
+    "00-00其他/20240514-01.VSCode配置GitHub.md",
+    "00-00其他/20240514-00.Esxi离线升级.md",
+    "00-00其他/05.Chrome插件-介绍.md",
+    "00-00其他/03.DNS_ADH.md",
+    "00-00其他/02.第三方免费域名解析.md",
+    "00-00其他/02-01.电报机器人推荐.md"
+  ]
+}
