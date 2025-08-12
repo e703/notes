@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "41c5a6d90a790daf",
+        "id": "3476025bc29faaf7",
         "type": "tabs",
         "children": [
           {
-            "id": "c03ea6aa1be4c62e",
+            "id": "4e7f7fcd42ff775c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "release-notes",
               "state": {
-                "file": "00-002GCP部署/00-00GCP部署详细说明.md",
-                "mode": "source",
-                "source": false
+                "currentVersion": "1.8.10"
               },
-              "icon": "lucide-file",
-              "title": "00-00GCP部署详细说明"
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.10"
             }
           }
         ]
@@ -169,8 +167,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c03ea6aa1be4c62e",
+  "active": "4e7f7fcd42ff775c",
   "lastOpenFiles": [
+    "00-002GCP部署/00-00GCP部署详细说明.md",
     "00-001家庭网络/20240521-Docker版本_小雅TVBOX部署.md",
     "00-000其他/20240514-01.VSCode配置GitHub.md",
     "00-000其他/02.第三方免费域名解析.md",
