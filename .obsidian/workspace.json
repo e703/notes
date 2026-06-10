@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#赋予脚本可执行权限",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -180,7 +181,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "845cb8e34fa1225a",
+  "active": "733a2ad0297fc749",
   "lastOpenFiles": [
     "00-004PVE部署相关/23-11-13easymosdns安装.md",
     "00-004PVE部署相关/23-10-03轻松搭建分流DNS服务器.md",
