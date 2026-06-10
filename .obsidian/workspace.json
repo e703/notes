@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-004PVE部署相关/23-11-13easymosdns安装 (ubuntu-24.04).md",
+                "file": "ReadMe.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "23-11-13easymosdns安装 (ubuntu-24.04)"
+              "title": "ReadMe"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#赋予脚本可执行权限",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -181,15 +180,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "733a2ad0297fc749",
+  "active": "845cb8e34fa1225a",
   "lastOpenFiles": [
+    "00-001家庭网络/04.停电自动关机.md",
+    "00-004PVE部署相关/23-11-13easymosdns安装 (ubuntu-24.04).md",
     "00-004PVE部署相关/23-11-13easymosdns安装.md",
     "00-004PVE部署相关/23-10-03轻松搭建分流DNS服务器.md",
     "00-004PVE部署相关/23-10-02.PVE下LXC部署ubuntu及初始化.md",
     "00-004PVE部署相关/23-10-02-01PVE下LXC部署Openwrt.md",
     "00-004PVE部署相关/23-10-01PVE8初始化.md",
-    "readme.md",
-    "00-004PVE部署相关/23-11-13easymosdns安装 (ubuntu-24.04).md",
+    "ReadMe.md",
     "00-000其他/02.第三方免费域名解析.md",
     "00-000其他/05.Chrome插件-介绍.md",
     "00-003Linix服务部署/02-系统部署/02-01.部署OpenConnect VPN Server.md",
