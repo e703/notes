@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3476025bc29faaf7",
+        "id": "44dc7ec38a9cb85f",
         "type": "tabs",
         "children": [
           {
-            "id": "4e7f7fcd42ff775c",
+            "id": "845cb8e34fa1225a",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.8.10"
+                "file": "00-003Linix服务部署/02-系统部署/02-01.部署OpenConnect VPN Server.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.10"
+              "icon": "lucide-file",
+              "title": "02-01.部署OpenConnect VPN Server"
             }
           }
         ]
@@ -148,16 +150,27 @@
               "icon": "lucide-list",
               "title": "02-01.电报机器人推荐 的大纲"
             }
+          },
+          {
+            "id": "c0be52e431be444c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -167,21 +180,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4e7f7fcd42ff775c",
+  "active": "845cb8e34fa1225a",
   "lastOpenFiles": [
+    "00-003Linix服务部署/01-数据库/01-01MySql安装_Debian9系统.md",
+    "00-000其他/20240514-00.Esxi离线升级.md",
+    "00-000其他/05.Chrome插件-介绍.md",
+    "00-000其他/03.DNS_ADH.md",
+    "00-000其他/02.第三方免费域名解析.md",
+    "00-000其他/02-01.电报机器人推荐.md",
     "00-002GCP部署/00-00GCP部署详细说明.md",
     "00-001家庭网络/20240521-Docker版本_小雅TVBOX部署.md",
     "00-000其他/20240514-01.VSCode配置GitHub.md",
-    "00-000其他/02.第三方免费域名解析.md",
-    "00-000其他/03.DNS_ADH.md",
-    "00-000其他/05.Chrome插件-介绍.md",
-    "00-000其他/20240514-00.Esxi离线升级.md",
     "00-000其他/同步功能测试.md",
     "00-000其他/测试网络图片等等.md",
-    "00-000其他/02-01.电报机器人推荐.md",
     "未命名",
     "readme.md",
-    "00-003Linix服务部署/01-数据库/01-01MySql安装_Debian9系统.md",
     "00-004PVE部署相关/23-11-13easymosdns安装.md",
     "00-004PVE部署相关/23-10-03轻松搭建分流DNS服务器.md",
     "00-004PVE部署相关/23-10-02.PVE下LXC部署ubuntu及初始化.md",
