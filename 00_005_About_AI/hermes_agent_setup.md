@@ -33,7 +33,7 @@
 三个 Profile 共享同一个云端 API Key。在宿主机环境（如 `~/.bashrc` 或项目 `.env` 文件）中配置：
 
 ```bash
-export AGNES_API_KEY="sk-oph5FIiBJsQtYeq7E44N8KLXKoxzvkVT4jSDYEbIUB1KcRuk"
+export AGNES_API_KEY="sk-XXXX"
 ```
 
 ---
