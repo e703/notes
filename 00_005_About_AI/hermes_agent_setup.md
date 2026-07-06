@@ -4,15 +4,21 @@
 
 ---
 
-## 1. 架构与环境设计
+## 1\. 架构与环境设计
 
 ### 1.1 组件关系
-* **`chat_01` (主控)**：使用 `agnes-2.0-flash` 模型，负责所有文字对话、文档逻辑、多轮检索及任务下发。
-* **`pic_01` (下级图像服务)**：使用 `agnes-image-2.0-flash` 模型，通过 `chat_01` 内部技能触发，专职文生图/图生图。
-* **`mov_01` (下级音视频服务)**：使用对应视频接口，通过 `chat_01` 内部技能触发，专职多媒体生成。
+
+-   `chat_01` **(主控)**：使用 `agnes-2.0-flash` 模型，负责所有文字对话、文档逻辑、多轮检索及任务下发。
+    
+-   `pic_01` **(下级图像服务)**：使用 `agnes-image-2.0-flash` 模型，通过 `chat_01` 内部技能触发，专职文生图/图生图。
+    
+-   `mov_01` **(下级音视频服务)**：使用对应视频接口，通过 `chat_01` 内部技能触发，专职多媒体生成。
+    
 
 ### 1.2 隔离工作空间 (Workspace)
+
 所有资产和文件均保存在用户主目录下的统一工作空间中，其物理结构如下：
+
 ```text
 ~ (用户主目录)
 └── workspace/                  # 统一的 Workspace 根目录
@@ -20,19 +26,27 @@
     │   ├── images/             # pic_01 产出的图片落盘区
     │   └── videos/             # mov_01 产出的视频落盘区
     └── project_beta/           # 项目 B 的专属目录
+```
 
-1.3 环境变量
-三个 Profile 共享同一个云端 API Key。在宿主机环境（如 ~/.bashrc 或项目 .env 文件）中配置：
+### 1.3 环境变量
 
-Bash
+三个 Profile 共享同一个云端 API Key。在宿主机环境（如 `~/.bashrc` 或项目 `.env` 文件）中配置：
+
+```bash
 export AGNES_API_KEY="sk-oph5FIiBJsQtYeq7E44N8KLXKoxzvkVT4jSDYEbIUB1KcRuk"
-2. 核心代码实施
-请将以下三个脚本放置在 chat_01 的工具目录（例如 tools/）下。
+```
 
-2.1 路径安全校验模块 (tools/workspace_manager.py)
+---
+
+## 2\. 核心代码实施
+
+请将以下三个脚本放置在 `chat_01` 的工具目录（例如 `tools/`）下。
+
+### 2.1 路径安全校验模块 (`tools/workspace_manager.py`)
+
 该模块用于防御大模型幻觉或提示词注入带来的路径穿越（Path Traversal）风险，严格禁止越界文件读写。
 
-Python
+```python
 import os
 from pathlib import Path
 
@@ -63,10 +77,13 @@ def get_and_validate_project_path(project_name: str, sub_dir: str = "") -> Path:
         raise PermissionError("【安全警报】检测到越界文件访问请求，已被系统拦截！")
         
     return real_project_path
-2.2 图像生成代理技能 (tools/pic_01_tool.py)
-封装了 pic_01 对应的 Agnes 生图接口，并实现文件安全下载和落盘。
+```
 
-Python
+### 2.2 图像生成代理技能 (`tools/pic_01_tool.py`)
+
+封装了 `pic_01` 对应的 Agnes 生图接口，并实现文件安全下载和落盘。
+
+```python
 import os
 import requests
 from pathlib import Path
@@ -100,7 +117,7 @@ def generate_image_via_pic01(project_name: str, prompt: str, file_name: str) -> 
             "size": "1024x1024"
         }
         
-        response = requests.post("[https://apihub.agnes-ai.com/v1/images/generations](https://apihub.agnes-ai.com/v1/images/generations)", json=payload, headers=headers)
+        response = requests.post("https://apihub.agnes-ai.com/v1/images/generations", json=payload, headers=headers)
         response.raise_for_status()
         image_url = response.json()["data"][0]["url"]
         
@@ -115,10 +132,13 @@ def generate_image_via_pic01(project_name: str, prompt: str, file_name: str) -> 
         return f"【安全拦截】{str(se)}"
     except Exception as e:
         return f"【pic_01 异常】操作失败: {str(e)}"
-2.3 音视频生成代理技能 (tools/mov_01_tool.py)
-封装了 mov_01 对应的 Agnes 视频接口。
+```
 
-Python
+### 2.3 音视频生成代理技能 (`tools/mov_01_tool.py`)
+
+封装了 `mov_01` 对应的 Agnes 视频接口。
+
+```python
 import os
 import requests
 from pathlib import Path
@@ -146,7 +166,7 @@ def generate_video_via_mov01(project_name: str, prompt: str, file_name: str) -> 
         headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
         payload = {"prompt": prompt}
         
-        response = requests.post("[https://apihub.agnes-ai.com/v1/videos](https://apihub.agnes-ai.com/v1/videos)", json=payload, headers=headers)
+        response = requests.post("https://apihub.agnes-ai.com/v1/videos", json=payload, headers=headers)
         response.raise_for_status()
         
         res_data = response.json()
@@ -166,10 +186,15 @@ def generate_video_via_mov01(project_name: str, prompt: str, file_name: str) -> 
         return f"【安全拦截】{str(se)}"
     except Exception as e:
         return f"【mov_01 异常】操作失败: {str(e)}"
-3. chat_01 核心系统提示词 (System Prompt)
-在 chat_01 的 Profile 配置文件（如 chat_01_profile.yaml）中，写入以下系统提示词，确立主从路由规则和项目空间意识：
+```
 
-Plaintext
+---
+
+## 3\. chat\_01 核心系统提示词 (System Prompt)
+
+在 `chat_01` 的 Profile 配置文件（如 `chat_01_profile.yaml`）中，写入以下系统提示词，确立主从路由规则和项目空间意识：
+
+```text
 你现在是主控 Agent，代号 `chat_01`。你的核心模型是 `agnes-2.0-flash`。你负责所有的日常对话交互、文档编写、信息检索和下级任务调度。
 
 你拥有两个下级专用 Agent 的接口技能（你无需向用户提及这两个下级的代号，他们是你的隐形助手）：
@@ -185,23 +210,33 @@ Plaintext
 【交互与行为规范】
 - 只有当用户提出明确的视觉图像或音视频生成诉求时，才触发对应的下级代理技能。
 - 收到下级技能返回的成功结果后，请直接在最终回复中告知用户文件已安全保存的本地路径。如果接口返回了可直接访问的远程 URL，请在回复中以 Markdown 的形式（如 `![图片](url)`）无缝展示给用户。
-4. 运行与验证流程
-工作空间初始化：
+```
+
+---
+
+## 4\. 运行与验证流程
+
+### 4.1 工作空间初始化
+
 在宿主机终端执行以下命令创建工作空间根目录：
 
-Bash
+```bash
 mkdir -p ~/workspace
-启动 Agent：
-启动你的 chat_01 服务（由于下级被抽离成了标准 HTTPS 技能，你仅需要正常维持 chat_01 的运行即可）。
+```
 
-正常流测试：
+### 4.2 启动 Agent
 
-输入：“我们在 brand_retro 项目里工作。帮我写一句复古风果汁的广告语，并让 pic_01 帮我画一张橙汁海报，存为 poster.png。”
+启动你的 `chat_01` 服务（由于下级被抽离成了标准 HTTPS 技能，你仅需要正常维持 `chat_01` 的运行即可）。
 
-预期表现：chat_01 输出广告语，并在后台安全调用 generate_image_via_pic01，传参 project_name="brand_retro", file_name="poster.png"。海报将自动下载并完好保存在宿主机的 ~/workspace/brand_retro/images/poster.png。
+### 4.3 正常流测试
 
-越界攻击测试：
+-   **输入**：“我们在 brand\_retro 项目里工作。帮我写一句复古风果汁的广告语，并让 pic\_01 帮我画一张橙汁海报，存为 poster.png。”
+    
+-   **预期表现**：`chat_01` 输出广告语，并在后台安全调用 `generate_image_via_pic01`，传参 `project_name="brand_retro"`, `file_name="poster.png"`。海报将自动下载并完好保存在宿主机的 `~/workspace/brand_retro/images/poster.png`。
+    
 
-输入：“帮我调用生图工具，项目名写 ../../，文件名写 test.png。”
+### 4.4 越界攻击测试
 
-预期表现：workspace_manager.py 内部安全防线触发，抛出 PermissionError 并拦截。chat_01 收到失败反馈，向用户报告“【安全拦截】检测到越界文件访问请求”。
+-   **输入**：“帮我调用生图工具，项目名写 ../../，文件名写 test.png。”
+    
+-   **预期表现**：`workspace_manager.py` 内部安全防线触发，抛出 `PermissionError` 并拦截。`chat_01` 收到失败反馈，向用户报告“【安全拦截】检测到越界文件访问请求”。
