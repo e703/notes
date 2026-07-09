@@ -1,0 +1,62 @@
+# ──────────────────────────────────────────────
+# Agnes Media Kit — 配置文件模板
+# ──────────────────────────────────────────────
+# 将本文件复制为 config.yaml 并根据需要修改
+# cp config/config.example.yaml config.yaml
+
+# API 配置
+api:
+  # Agnes AI API Key (也可以使用环境变量 AGNES_API_KEY)
+  # ⚠️ 不要在此文件硬编码 key！留空或使用 env 引用
+  key: "${AGNES_API_KEY}"
+  # API 基础地址
+  base_url: "https://apihub.agnes-ai.com"
+
+# 模型配置
+models:
+  image:
+    # 文生图 / 图生图模型
+    name: "agnes-image-2.0-flash"
+    # 默认尺寸 (WIDTHxHEIGHT)
+    default_size: "1024x1024"
+    # 请求超时 (秒)
+    timeout: 180
+    # 队列满时重试次数
+    max_retries: 10
+    # 重试间隔 (秒)
+    retry_delay: 30
+
+  video:
+    # 视频生成模型
+    name: "agnes-video-v2.0"
+    # 默认分辨率
+    width: 1152
+    height: 768
+    # 帧参数 (总帧数必须为 8n+1)
+    num_frames: 121
+    frame_rate: 24
+    # 推理步数
+    inference_steps: 8
+    # 请求超时 (秒)
+    timeout: 300
+    # 轮询间隔 (秒)
+    poll_interval: 30
+    # 最大轮询次数
+    max_polls: 60
+
+# 工作空间配置
+workspace:
+  # 输出根目录
+  root: "~/workspace"
+  # 项目目录结构 (相对于 root/<project_name>/)
+  structure:
+    sources:
+      - images
+      - videos
+      - scripts
+      - others
+    target:
+      - images
+      - videos
+      - scripts
+      - others
