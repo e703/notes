@@ -1,0 +1,51 @@
+name: agnes_router
+version: 1.1.0
+description: >
+  Agnes AI media router for Hermes Agent — safely generates images and videos
+  into a configurable workspace directory. Provides two tools:
+    generate_image_via_pic01  (text-to-image, model: agnes-image-2.0-flash)
+    generate_video_via_mov01  (text-to-video,  model: agnes-video-v2.0)
+provides_tools:
+  - generate_image_via_pic01
+  - generate_video_via_mov01
+requires_env:
+  - name: AGNES_API_KEY
+    description: Agnes AI API key for authentication
+    secret: true
+configurable:
+  workspace_root:
+    description: Base directory for generated media
+    default: ~/workspace
+    example: /data/media
+  image_endpoint:
+    description: Image generation API endpoint
+    default: https://apihub.agnes-ai.com/v1/images/generations
+  video_endpoint:
+    description: Video generation API endpoint
+    default: https://apihub.agnes-ai.com/v1/videos
+  image_model:
+    description: Default image generation model
+    default: agnes-image-2.0-flash
+  video_model:
+    description: Default video generation model
+    default: agnes-video-v2.0
+  image_timeout:
+    description: Request timeout for image generation (seconds)
+    default: 180
+    min: 30
+    max: 600
+  video_timeout:
+    description: Request timeout for video submission (seconds)
+    default: 300
+    min: 60
+    max: 900
+  download_timeout:
+    description: Timeout for downloading generated media (seconds)
+    default: 300
+    min: 30
+    max: 1800
+  allowed_subdirs:
+    description: Allowed subdirectories under workspace
+    default:
+      - images
+      - videos

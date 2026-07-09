@@ -1,0 +1,28 @@
+# Example Hermes Agent Config for Agnes Router Plugin
+
+# Add this to your config.yaml under plugins.entries
+
+plugins:
+  enabled:
+    - agnes_router
+  entries:
+    agnes_router:
+      # Override workspace root (default: ~/workspace)
+      # workspace_root: /data/media
+
+      # Override API endpoints (defaults point to apihub.agnes-ai.com)
+      # image_endpoint: https://apihub.agnes-ai.com/v1/images/generations
+      # video_endpoint: https://apihub.agnes-ai.com/v1/videos
+
+      # Override models
+      # image_model: agnes-image-2.0-flash
+      # video_model: agnes-video-v2.0
+
+      # Override timeouts (seconds)
+      # image_timeout: 180
+      # video_timeout: 300
+      # download_timeout: 300
+
+      # Override retry behavior
+      # max_retries: 2
+      # retry_delay: 3.0
