@@ -44,11 +44,20 @@ Sometimes the video is generated so quickly that the payload is returned inline:
 
 ## Polling Workflow
 
+### ⚠️ 关键：不要用 task_id 查状态
+
+**`GET /v1/videos/{task_id}` 这个 endpoint 不返回任务结果**，即使视频已完成也一直显示 `queued`。
+
+**必须** 用 `GET /agnesapi?video_id=<real_video_id>` 查询。`video_id` 来自 POST 创建任务的返回值（base64编码的字段），通过 `check_task.py` 自动解码即可。
+
 ### Method 1: Using check_task.py (Recommended)
 
 ```bash
-# Check status
-python3 scripts/check_task.py task_abc123def
+# Check status — 传 video_id（POST返回的原始字段或解码后的都行）
+python3 scripts/check_task.py video_d39354f7bafe484cac4c58481d91c171
+
+# 也支持 base64 编码的原始 video_id
+python3 scripts/check_task.py "video_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVy..."
 
 # Exit codes:
 #   0 = completed with download URL
@@ -56,13 +65,14 @@ python3 scripts/check_task.py task_abc123def
 #   2 = still processing
 ```
 
-### Method 2: Direct API Query
+### Method 2: Direct API Query (正确方式)
 
 ```bash
-# Preferred endpoint
-curl -s "https://apihub.agnes-ai.com/v1/videos/task_abc123def" \
-  -H "Authorization: Bearer $AGNES_API_KEY"
+curl -s "https://apihub.agnes-ai.com/agnesapi?video_id=video_d39354f7bafe484cac4c58481d91c171" \
+  -H "Authorization: Bearer ***"
 ```
+
+> ⚠️ **不要用** `https://apihub.agnes-ai.com/v1/videos/{task_id}` — 这个 endpoint 不返回正确结果。
 
 Response:
 
@@ -74,6 +84,59 @@ Response:
   "video_id": "xyz789",
   "seconds": "5.0",
   "size": "1280x704"
+}
+```
+
+### Full Completed Response (Real Example)
+
+When the task completes, the response includes rich metadata:
+
+```json
+{
+  "id": "task_abc123def",
+  "status": "completed",
+  "progress": 100,
+  "url": "https://platform-outputs.agnes-ai.space/videos/.../video_xxx.mp4",
+  "video_id": "video_xxx",
+  "seconds": "5.0",
+  "size": "1088x832",
+  "model": "agnes-video-v2.0",
+  "perf_infer_s": 70.8,
+  "perf_infer_t0": 589215.4,
+  "perf_output_size": 2858996,
+  "perf_upload_s": 5.5,
+  "perf_params": {
+    "frame_rate": 24,
+    "height": 832,
+    "num_frames": 121,
+    "num_inference_steps": 8,
+    "seed": 436991,
+    "width": 1088
+  },
+  "request_params": {
+    "prompt": "...",
+    "negative_prompt": "pc game, console game ...",
+    "model": "agnes-video-v2.0",
+    "num_frames": 121,
+    "num_inference_steps": 8,
+    "seed": 436991,
+    "mode": "ti2vid",
+    "ratio": "4:3",
+    "resolution": "720p"
+  },
+  "size_mapping": {
+    "adjusted": true,
+    "height": 832,
+    "width": 1088,
+    "resolution": "720p",
+    "ratio": "4:3",
+    "requested_height": 768,
+    "requested_width": 1152,
+    "message": "Input size ... was mapped to nearest preset 720p/4:3 (1088x832)"
+  },
+  "prompt_id": "81db27d1-...",
+  "created_at": 1783580591,
+  "completed_at": 1783580667
 }
 ```
 
@@ -91,9 +154,9 @@ echo "Done!"
 ## Download Pattern
 
 ```bash
-# 1. Get the URL
-TASK_RESULT=$(curl -s "https://apihub.agnes-ai.com/v1/videos/task_abc123def" \
-  -H "Authorization: Bearer $AGNES_API_KEY")
+# 1. Get the URL using correct endpoint
+TASK_RESULT=$(curl -s "https://apihub.agnes-ai.com/agnesapi?video_id=video_d39354f7bafe484cac4c58481d91c171" \
+  -H "Authorization: Bearer ***")
 
 # 2. Extract URL (avoid inline python — write to temp file if needed)
 URL=$(echo "$TASK_RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('url',''))")
